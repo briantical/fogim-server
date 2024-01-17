@@ -1,4 +1,4 @@
-from typing import Union
+import uvicorn
 from fastapi import FastAPI
 
 from fastapi.staticfiles import StaticFiles
@@ -9,10 +9,9 @@ app.mount("/media", StaticFiles(directory="media"), name="media")
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
+def get_root():
+    return "Fellowship Of Grace International Ministries (FOGIM)"
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+def start():
+    uvicorn.run("fogim_server.main:app", host="0.0.0.0", port=8000, reload=True)
