@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 fastapi = "^0.109.0"
 uvicorn = {extras = ["standard"], version = "^0.26.0"}
+python-multipart = "^0.0.6"
 
 
 [build-system]
@@ -16,4 +17,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-start = "fogim_server.main:start"
+start = "fogim_server.src.main:start"
